@@ -69,6 +69,8 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         body {
@@ -79,6 +81,7 @@
             /* Fixed background creates a smooth, continuous feel while scrolling */
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* --- Utilities --- */
@@ -437,7 +440,7 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
         }
 
@@ -580,7 +583,7 @@
 
         .value-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 60px;
             align-items: center;
         }
@@ -888,6 +891,7 @@
         .schedule h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .schedule p {
@@ -997,7 +1001,8 @@
                 font-size: 2.5rem;
             }
 
-            .section-header h2 {
+            .section-header h2,
+            .schedule h2 {
                 font-size: 2rem;
             }
 
