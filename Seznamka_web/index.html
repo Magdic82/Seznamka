@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osudové setkání | Tematické skupinové videohovory pro nezadané</title>
+    <meta name="description"
+        content="Poznejte nové lidi z Prahy a okolí v uvolněné atmosféře tematických videohovorů. Získejte inspiraci, nové kontakty a možná i osudové setkání.">
+
+    <!-- Favicon: Heart emoji (Centered) -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%2250%%22 x=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2280%22>❤️</text></svg>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osudovesetkani.cz/">
+    <meta property="og:title" content="Osudové setkání | Tematické videohovory pro nezadané">
+    <meta property="og:description"
+        content="Skupinové videohovory, které propojují lidi. Získejte 19 tipů a možná i osudové setkání.">
+    <meta property="og:image" content="Fotky/Hovor/skupina.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Osudové setkání | Tematické videohovory pro nezadané">
+    <meta property="twitter:description"
+        content="Skupinové videohovory, které propojují lidi. Získejte 19 tipů a možná i osudové setkání.">
+    <meta property="twitter:image" content="Fotky/Hovor/skupina.jpg">
+
+    <!-- Google Fonts: Outfit for a modern, friendly look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Reset & Variables --- */
+        :root {
+            /* Palette based on Rivor/Instruction */
+            --primary: #FF5A5A;
+            --primary-hover: #fa4646;
+            --secondary: #FFC300;
+            --dark: #1F2937;
+            /* Dark gray for text */
+            --gray: #1F2937;
+            /* Was #6B7280, now matches headings */
+            --light-bg: #F9FAFB;
+            /* Very light background */
+            --white: #FFFFFF;
+
+            /* Spacing & Layout */
+            --section-padding: 80px 20px;
+            --container-width: 1200px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--dark);
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFFFFF 25%, #FFF5F5 50%, #FFFFFF 75%, #FFF5F5 100%);
+            background-attachment: fixed;
+            /* Fixed background creates a smooth, continuous feel while scrolling */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Utilities --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(255, 90, 90, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 90, 90, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark);
+            border: 2px solid #F3F4F6;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- Decorative Background Blobs --- */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: -5%;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: 10%;
+            right: -5%;
+        }
+
+        .blob-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--primary);
+            top: 50%;
+            left: 10%;
+        }
+
+        .blob-4 {
+            width: 350px;
+            height: 350px;
+            background: var(--secondary);
+            top: 30%;
+            right: 15%;
+            opacity: 0.1;
+        }
+
+        .blob-5 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            bottom: 20%;
+            left: 5%;
+            opacity: 0.1;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 120px 0 100px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 195, 0, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #FEF2F2;
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid #FECACA;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Floating Images --- */
+        .hero-floating-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-img {
+            position: absolute;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border: 4px solid var(--white);
+            pointer-events: auto;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(var(--rot));
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(var(--rot));
+            }
+        }
+
+        .floating-img:hover {
+            transform: scale(1.1) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        .img-1 {
+            --rot: -8deg;
+            top: 10%;
+            left: 5%;
+            width: 160px;
+            height: 180px;
+            transform: rotate(var(--rot));
+            animation-delay: 0s;
+        }
+
+        .img-2 {
+            --rot: 5deg;
+            top: 40%;
+            left: 2%;
+            width: 135px;
+            height: 135px;
+            transform: rotate(var(--rot));
+            animation-delay: 1s;
+        }
+
+        .img-3 {
+            --rot: -4deg;
+            top: 68%;
+            left: 6%;
+            width: 145px;
+            height: 170px;
+            transform: rotate(var(--rot));
+            animation-delay: 2s;
+        }
+
+        .img-4 {
+            --rot: 6deg;
+            top: 5%;
+            right: 2%;
+            width: 170px;
+            height: 200px;
+            transform: rotate(var(--rot));
+            animation-delay: 0.5s;
+        }
+
+        .img-5 {
+            --rot: -10deg;
+            top: 45%;
+            /* Moved down from 35% */
+            right: 12%;
+            /* Significant horizontal shift inwards */
+            width: 145px;
+            height: 145px;
+            transform: rotate(var(--rot));
+            animation-delay: 1.5s;
+        }
+
+        .img-6 {
+            --rot: 4deg;
+            top: 75%;
+            /* Moved down from 70% to accommodate img-5 */
+            right: 4%;
+            width: 155px;
+            height: 155px;
+            transform: rotate(var(--rot));
+            animation-delay: 2.5s;
+        }
+
+        @media (max-width: 1300px) {
+            .img-1 {
+                left: 2%;
+                width: 130px;
+                height: 150px;
+            }
+
+            .img-2 {
+                left: 1%;
+                width: 100px;
+                height: 100px;
+            }
+
+            .img-3 {
+                left: 3%;
+                width: 110px;
+                height: 130px;
+            }
+
+            .img-4 {
+                right: 2%;
+                width: 140px;
+                height: 160px;
+            }
+
+            .img-5 {
+                right: 3%;
+                width: 90px;
+                height: 90px;
+            }
+
+            .img-6 {
+                right: 1%;
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .floating-img {
+                opacity: 0.6;
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .img-1 {
+                top: 15%;
+            }
+
+            .img-3 {
+                top: 80%;
+            }
+
+            .img-4 {
+                top: 10%;
+            }
+
+            .img-6 {
+                top: 85%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-img {
+                display: none;
+            }
+        }
+
+        /* --- Benefits (Výhody) --- */
+        .benefits {
+            padding: var(--section-padding);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+            border: 1px solid #F3F4F6;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .benefit-card:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: #FFF5F5;
+            border-radius: 20px;
+            /* Modern squircle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--primary);
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        /* --- Permanent Highlighted State for Special Card --- */
+        .benefit-card.benefit-card-swapped {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            cursor: default;
+            /* Optional: indicates it's not interactive if desired */
+        }
+
+        .benefit-card.benefit-card-swapped .icon-box {
+            transform: scale(1.1) rotate(5deg);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Disable hover for this specific card */
+        .benefit-card.benefit-card-swapped:hover {
+            transform: translateY(-10px);
+            /* Keep current position */
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-card.benefit-card-swapped:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
+            /* Keep current scale/rotation */
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* --- How It Works (Jak to funguje) --- */
+        .process {
+            background-color: transparent;
+            padding: var(--section-padding);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+            display: none;
+            /* Hidden on mobile, shown on desktop via media query */
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            min-width: 220px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        /* --- What You Get (Co získáš) --- */
+        .value-props {
+            padding: var(--section-padding);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .img-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .img-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--secondary);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .value-img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: block;
+            transition: var(--transition);
+        }
+
+        .value-img:hover {
+            transform: scale(1.02);
+        }
+
+        .value-list {
+            list-style: none;
+        }
+
+        .value-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .value-list li i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 5px;
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* --- Themes (Témata) - Light & Joyful --- */
+        .themes {
+            background: transparent;
+            color: var(--dark);
+            padding: var(--section-padding);
+            position: relative;
+            /* overflow: hidden; Removed to allow background elements to flow naturally */
+        }
+
+        .blob-yellow {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .blob-themes {
+            top: -100px;
+            right: -100px;
+        }
+
+        .blob-about {
+            bottom: -150px;
+            left: -150px;
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .theme-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #F3F4F6;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .theme-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            transition: var(--transition);
+            background-color: #FFF5F5;
+            /* Light pink based on --primary */
+            color: var(--primary);
+        }
+
+        .theme-card:hover .theme-icon-box {
+            transform: scale(1.1) rotate(5deg);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .theme-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* --- Program & Rules Side by Side --- */
+        .program-rules {
+            padding: var(--section-padding);
+            background-color: transparent;
+        }
+
+        .program-rules-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .program-rules .section-header {
+            text-align: left;
+            margin: 0 0 40px 0;
+            max-width: 100%;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .time {
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 100px;
+            text-align: right;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            padding-bottom: 15px;
+            border-bottom: 1px solid #E5E7EB;
+            width: 100%;
+        }
+
+        .content h3 {
+            margin-bottom: 6px;
+            font-size: 1.2rem;
+        }
+
+        /* --- Rules (Pravidla) --- */
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            background: var(--white);
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 991px) {
+            .program-rules-grid {
+                grid-template-columns: 1fr;
+                gap: 80px;
+            }
+
+            .program-rules .section-header {
+                text-align: center;
+            }
+
+            .time {
+                text-align: left;
+                min-width: auto;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        /* --- Target Audience (Pro koho) --- */
+        .target-audience {
+            background-color: transparent;
+            padding: var(--section-padding);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .audience-item {
+            background: var(--white);
+            padding: 20px 25px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .audience-item i {
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        /* --- Pricing (Cena a kredity) --- */
+        .pricing {
+            padding: var(--section-padding);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        .price-details {
+            list-style: none;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .price-details li {
+            padding: 12px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        /* --- Schedule (Kdy se konají) --- */
+        .schedule {
+            background: linear-gradient(135deg, var(--primary) 0%, #FF8A8A 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .schedule h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .schedule p {
+            font-size: 1.5rem;
+            opacity: 0.95;
+        }
+
+        /* --- Practical Info --- */
+        .practical-info {
+            padding: var(--section-padding);
+            background-color: transparent;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 12px;
+        }
+
+        /* --- About (O pořadatelce) --- */
+        .about {
+            padding: var(--section-padding);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin: 30px 0;
+        }
+
+        .contact-info a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive updates --- */
+        @media (min-width: 900px) {
+            .process-steps::before {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .time {
+                text-align: left;
+            }
+
+            .themes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-floating-images">
+            <img src="Fotky/Hovor/10751.jpg" alt="Účastnice hovoru" class="floating-img img-1">
+            <img src="Fotky/Hovor/122981.jpg" alt="Účastnice hovoru" class="floating-img img-2">
+            <img src="Fotky/Hovor/13537.jpg" alt="Účastnice hovoru" class="floating-img img-3">
+            <img src="Fotky/Hovor/281700.jpg" alt="Účastnice hovoru" class="floating-img img-4">
+            <img src="Fotky/Hovor/28059712.jpg" alt="Účastník hovoru" class="floating-img img-5">
+            <img src="Fotky/Hovor/33881.jpg" alt="Účastník hovoru" class="floating-img img-6">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">20 lidí • 19 tipů • 1 match</div>
+                <h1>Tematický videohovor pro nezadané, při kterém vždy <br><span class="highlight">něco
+                        získáte</span></h1>
+                <p>Ať už nové nápady na víkend, nebo někoho, s kým ho strávit.</p>
+                <div class="cta-group">
+                    <a href="https://forms.gle/KPzaBZPPrCCzPJLw8" class="btn btn-primary" target="_blank">
+                        Nezávazná přihláška <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="blob blob-1" style="opacity: 0.08;"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Proč to vyzkoušet?</h2>
+                <p>Není to jen o hledání partnera. Je to o příjemném večeru, inspiraci a nových lidech.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                    </div>
+                    <h3>Pohodové prostředí</h3>
+                    <p>Moderovaná obýváková atmosféra, kde se nikdo nemusí cítit trapně. Všichni jsou na stejné lodi.
+                    </p>
+                </div>
+                <div class="benefit-card benefit-card-swapped">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3>Inspirace a tipy</h3>
+                    <p>I když nikoho nepotkáš "osudového", odneseš si 19 tipů na výlety, filmy nebo kulturu od
+                        ostatních.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <h3>Diskrétní seznámení</h3>
+                    <p>Žádné veřejné odmítání. Kontakty si vyměníme pouze v případě, že jsou sympatie vzájemné.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="process">
+        <div class="blob blob-3"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Jak Osudové setkání funguje?</h2>
+                <p>Jednoduchý proces, který vás provede celým večerem.</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Online videohovor</h3>
+                    <p>Společný Google Meet s maximálně 20 účastníky.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Sdílení tipů</h3>
+                    <p>Každý sdílí své nápady na výlety, filmy nebo aktivity.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Výměna kontaktů</h3>
+                    <p>Kontakty pouze při vzájemné shodě – diskrétně a bezpečně.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Živá setkání</h3>
+                    <p>Jednou za čas akce pro účastníky všech online hovorů.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="value-props">
+        <div class="container">
+            <div class="section-header">
+                <h2>Co z toho získáš?</h2>
+                <p>Každé setkání přináší hodnotu – ať už nové kontakty, nebo inspiraci.</p>
+            </div>
+            <div class="value-grid">
+                <ul class="value-list">
+                    <li><i class="fa-regular fa-star"></i> <span><strong>Inspiraci</strong> – tipy na výlety, filmy,
+                            aktivity od ostatních účastníků.</span></li>
+                    <li><i class="fa-regular fa-star"></i> <span><strong>Nové kontakty</strong> – s podobně naladěnými
+                            lidmi z Prahy a okolí.</span></li>
+                    <li><i class="fa-regular fa-star"></i> <span><strong>Příjemný večer</strong> – bez tlaku a stresu z
+                            klasického rande.</span></li>
+                    <li><i class="fa-regular fa-star"></i> <span><strong>Přirozené seznámení</strong> – v uvolněné
+                            skupinové atmosféře.</span></li>
+                    <li><i class="fa-regular fa-star"></i> <span><strong>Kredity na další setkání</strong> – nevyužité
+                            kredity nepropadají.</span></li>
+                </ul>
+                <div class="img-wrapper">
+                    <img src="Fotky/Hovor/skupina.jpg" alt="Skupinový videohovor" class="value-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section class="themes">
+        <div class="blob-yellow blob-themes"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Témata setkání</h2>
+                <p>V přihlášce si vyber téma, které tě baví, a přivede tě k lidem se stejnými zájmy.</p>
+            </div>
+            <div class="themes-grid">
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+                    <h3>Kultura</h3>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h3>Filmy</h3>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <h3>Knihy</h3>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <h3>Sport</h3>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+                    <h3>Cestování</h3>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </div>
+                    <h3>Výlety po ČR</h3>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3>Podnikání</h3>
+                </div>
+                <div class="theme-card">
+                    <div class="theme-icon-box">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3>Zdravý životní styl</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program and Rules Side by Side -->
+    <section class="program-rules">
+        <div class="container">
+            <div class="program-rules-grid">
+                <!-- Program Column -->
+                <div class="program-column">
+                    <div class="section-header">
+                        <h2>Program setkání</h2>
+                        <p>90 minut plných inspirace a nových známostí.</p>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="time">18:00–18:10</div>
+                            <div class="content">
+                                <h3>Přivítání a pravidla</h3>
+                                <p>Společné zahájení, vysvětlení formátu a základních pravidel.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">18:10–19:20</div>
+                            <div class="content">
+                                <h3>Představení + tipy</h3>
+                                <p>Každý se představí a sdílí své tipy související s tématem večera.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">19:20–19:30</div>
+                            <div class="content">
+                                <h3>Označení sympatií</h3>
+                                <p>Diskrétní označení lidí, se kterými byste chtěli zůstat v kontaktu.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="time">Po skončení</div>
+                            <div class="content">
+                                <h3>Vyhodnocení a zaslání kontaktů</h3>
+                                <p>Při vzájemné shodě obdržíte kontakty emailem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rules Column -->
+                <div class="rules-column">
+                    <div class="section-header">
+                        <h2>Pravidla setkání</h2>
+                        <p>Jednoduchá pravidla pro příjemnou atmosféru.</p>
+                    </div>
+                    <ul class="rules-list">
+                        <li><i class="fa-solid fa-handshake" style="margin-right: 15px; color: var(--primary);"></i>
+                            Všichni si tykáme</li>
+                        <li><i class="fa-solid fa-heart" style="margin-right: 15px; color: var(--primary);"></i>
+                            Chováme se k sobě slušně</li>
+                        <li><i class="fa-solid fa-shield-halved" style="margin-right: 15px; color: var(--primary);"></i>
+                            Žádné veřejné odmítání</li>
+                        <li><i class="fa-solid fa-lock" style="margin-right: 15px; color: var(--primary);"></i>
+                            Kontakty může sdílet jen moderátor</li>
+                        <li><i class="fa-solid fa-video" style="margin-right: 15px; color: var(--primary);"></i>
+                            Při hovoru máme zapnutou kameru</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="target-audience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pro koho je setkání určené?</h2>
+                <p>Hledáme lidi, kteří jsou spokojení sami se sebou a chtějí potkat podobně naladěné.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-item">
+                    <i class="fa-solid fa-heart-crack"></i>
+                    <span>Nezadaní lidé</span>
+                </div>
+                <div class="audience-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Praha a Středočeský kraj</span>
+                </div>
+                <div class="audience-item">
+                    <i class="fa-solid fa-venus"></i>
+                    <span>Ženy 30–45 let</span>
+                </div>
+                <div class="audience-item">
+                    <i class="fa-solid fa-mars"></i>
+                    <span>Muži 35–50 let</span>
+                </div>
+                <div class="audience-item">
+                    <i class="fa-solid fa-smile"></i>
+                    <span>Lidé spokojení se svým životem</span>
+                </div>
+                <div class="audience-item">
+                    <i class="fa-solid fa-spa"></i>
+                    <span>Lidé, kteří pečují o své tělo i mysl</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cena a kredity</h2>
+                <p>Transparentní systém kreditů, které se dají znovu použít.</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>1 kredit samostatně</h3>
+                    <div class="price">250 Kč</div>
+                    <p style="margin-bottom: 20px;">1 kredit</p>
+                    <ul class="price-details">
+                        <li>✓ Účast v online setkání</li>
+                        <li>✓ Možnost označit sympatie</li>
+                        <li>✓ Předání kontaktu</li>
+                    </ul>
+                </div>
+                <div class="pricing-card" style="border-color: var(--primary); position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">
+                        Výhodné</div>
+                    <h3>Balíček</h3>
+                    <div class="price">1000 Kč</div>
+                    <p style="margin-bottom: 20px;">5 kreditů (200 Kč/kredit)</p>
+                    <ul class="price-details">
+                        <li>✓ 5 kreditů</li>
+                        <li>✓ Kredity nepropadají</li>
+                        <li>✓ Úspora 250 Kč</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="max-width: 700px; margin: 40px auto 0; padding: 30px; background: #FFF5F5; border-radius: var(--radius-md); border-left: 4px solid var(--primary);">
+                <h4 style="margin-bottom: 15px;">Jak fungují kredity?</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;">• <strong>1 kredit</strong> = účast v online setkání</li>
+                    <li style="margin-bottom: 10px;">• <strong>1 kredit</strong> = možnost označit sympatie pro jednoho
+                        nebo více lidí</li>
+                    <li style="margin-bottom: 10px;">• <strong>1 kredit</strong> = muž hradí pro získání kontaktu na
+                        ženu
+                        při shodě</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule">
+        <div class="container">
+            <h2>Kdy se setkání konají?</h2>
+            <p><i class="fa-solid fa-calendar-days" style="margin-right: 15px;"></i>Každou neděli od 18:00 do 19:30</p>
+            <p style="font-size: 1.1rem; margin-top: 10px; opacity: 0.9;">Přesné datumy video hovorů zveřejním, až
+                zjistím váš zájem z nezávazné přihlášky.</p>
+            <div style="margin-top: 30px;">
+                <a href="https://forms.gle/KPzaBZPPrCCzPJLw8" class="btn btn-secondary" target="_blank">
+                    Nezávazná přihláška <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Info Section -->
+    <section class="practical-info">
+        <div class="container">
+            <div class="section-header">
+                <h2>Praktické informace</h2>
+                <p>Vše, co potřebujete vědět před setkáním</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-download"></i>
+                    <h3>Bez instalace</h3>
+                    <p>Setkání probíhá přes Google Meet – stačí kliknout na odkaz.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h3>Jen křestní jméno</h3>
+                    <p>V nastavení Google účtu používejte pouze své křestní jméno.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3>Moderované</h3>
+                    <p>Setkání je moderované a výměna kontaktů je zajištěna.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" style="position: relative; overflow: hidden;">
+        <div class="blob-yellow blob-about"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Kdo setkání pořádá?</h2>
+            </div>
+            <div class="about-content">
+                <div style="margin: 0 auto 30px; width: 150px; height: 150px;">
+                    <img src="Fotky/Magda/Magda.jpg" alt="Magdaléna"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow-md); border: 4px solid var(--white);">
+                </div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Magdaléna Boušková</h3>
+                <p>Jmenuji se Magdaléna a jsem webdesignerka.</p>
+                <p>Spojování lidí je moje dlouhodobá záliba. Věřím, že pouze z fotky nejde poznat, jaký člověk je. Video
+                    a slovní vyjádření však napoví víc.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2>Jste připraveni na osudové setkání?</h2>
+                <p style="color: #9CA3AF; margin-bottom: 30px;">Vyplňte nezávaznou přihlášku a staňte se součástí naší
+                    komunity</p>
+                <a href="https://forms.gle/KPzaBZPPrCCzPJLw8" class="btn btn-primary" target="_blank">
+                    Nezávazná přihláška <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
+                </a>
+                <div class="contact-info">
+                    <a href="mailto:magdalena@strategickyweb.cz">
+                        <i class="fa-solid fa-envelope"></i> magdalena@strategickyweb.cz
+                    </a>
+                    <a href="tel:+420731552151">
+                        <i class="fa-solid fa-phone"></i> 731 552 151
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 Osudové setkání | Magdaléna
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
